@@ -74,7 +74,7 @@ void interrupt ISR_ROUTINE( )
   TRISCbits.TRISC3=1;     // RC3 AN7 input
   ANSELCbits.ANSC3=1;     // RC3 as Analog   
   /******************************************************************************/
-  /* Interrupt sending data every 16 sec                                        */
+  /* Interrupt sending data every 60 sec                                        */
   /******************************************************************************/
   if(PIR1bits.TMR1IF)
   {
