@@ -1,10 +1,3 @@
-// Work the best
-/* 
- * File:   
- * Author: 
- * Comments:
- * Revision history: 
- */
 
 #include <xc.h> // include processor files - each processor file is guarded.  
 #include "pic16lf1459.h"
@@ -44,7 +37,7 @@ void I2C_Initialize(void)
     SSP1CON1 = 0x28;
     // ACKTIM ackseq; SBCDE disabled; BOEN disabled; SCIE disabled; PCIE disabled; DHEN disabled; SDAHT 100ns; AHEN disabled; 
     SSP1CON3 = 0x00;
-    // SSPADD 4; 
+
     SSP1ADD = 0x04;
     SSP1CON2 = 0x00;
 
@@ -75,8 +68,6 @@ void i2c_Restart(void){
 // i2c_Stop - Stop I2C communication
 void i2c_Stop(void)
 {
- //   i2c_Wait();
-    //while(SSPSTATbits.BF);
     I2C_STOP_CONDITION_ENABLE_BIT = 1;
             while(I2C_STOP_CONDITION_ENABLE_BIT);
 
@@ -124,13 +115,11 @@ uint8_t i2c_Read(unsigned char ack)
     // ack should be 0 if this is the last byte of data read
     uint8_t i2cReadData;
     
-  //  i2c_Wait();
     I2C_RECEIVE_ENABLE_BIT = 1;
     while(I2C_RECEIVE_ENABLE_BIT);
     i2cReadData = SSPBUF;
     while(SSPSTATbits.BF);
 
-  //  i2c_Wait();
     
     if ( ack ) I2C_ACKNOWLEDGE_DATA_BIT =0;	        // Ack
     else       I2C_ACKNOWLEDGE_DATA_BIT =1;	        // NAck
@@ -153,7 +142,6 @@ void i2c_command(uint8_t address, uint8_t command1, uint8_t command2)
     
 }
 
- //Read a char 
 uint8_t i2c_temp_read(uint8_t address)
 {
     uint8_t read_byte[2];
