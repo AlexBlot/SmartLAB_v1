@@ -19,7 +19,6 @@
 
 /* TODO User level functions prototypes (i.e. InitApp) go here */
 void InitApp(void);         /* I/O and Peripheral Initialization */
-void SleepInitApp(void);
 void timer_setup_and_start_IE(void);
 
 
