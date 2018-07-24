@@ -1,11 +1,4 @@
 
-/* 
- * File:   
- * Author: 
- * Comments:
- * Revision history: 
- */
-
 #include <xc.h> // include processor files - each processor file is guarded.  
 #include "pic16lf1459.h"
 
@@ -58,5 +51,4 @@ uint8_t i2c_Read(unsigned char ack);
 
 void i2c_command(uint8_t address, uint8_t command1, uint8_t command2);
 
- //Read a char 
 uint8_t i2c_temp_read(uint8_t address);
