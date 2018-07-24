@@ -1,0 +1,426 @@
+[p LITE_MODE AUTOSTATIC PIC14 PIC14E ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 16LF1459 ]
+[d frameptr 6 ]
+"62 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\float.c
+[v ___ftpack __ftpack `(f  1 e 3 0 ]
+"86 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ftadd.c
+[v ___ftadd __ftadd `(f  1 e 3 0 ]
+"34 C:\Users\Student\MPLABXProjects\TemperatureLP.X\i2c_temp.c
+[v _I2C_Initialize I2C_Initialize `(v  1 e 1 0 ]
+"54
+[v _i2c_Wait i2c_Wait `(v  1 e 1 0 ]
+"59
+[v _i2c_Start i2c_Start `(v  1 e 1 0 ]
+"68
+[v _i2c_Restart i2c_Restart `(v  1 e 1 0 ]
+"76
+[v _i2c_Stop i2c_Stop `(v  1 e 1 0 ]
+"86
+[v _i2c_Write i2c_Write `(v  1 e 1 0 ]
+"94
+[v _i2c_Write16 i2c_Write16 `(v  1 e 1 0 ]
+"107
+[v _i2c_Address i2c_Address `(v  1 e 1 0 ]
+"120
+[v _i2c_Read i2c_Read `(uc  1 e 1 0 ]
+"31 C:\Users\Student\MPLABXProjects\TemperatureLP.X\mainTemp.c
+[v _isr isr `II(v  1 e 1 0 ]
+"127
+[v _main main `(v  1 e 1 0 ]
+"15 C:\Users\Student\MPLABXProjects\TemperatureLP.X\nRF24L01P.c
+[v _nRF_Setup nRF_Setup `(v  1 e 1 0 ]
+"44
+[v _FlushTXRX FlushTXRX `(v  1 e 1 0 ]
+"52
+[v _WriteRegister WriteRegister `(v  1 e 1 0 ]
+"62
+[v _WriteAddress WriteAddress `(v  1 e 1 0 ]
+"86
+[v _WriteCommand WriteCommand `(v  1 e 1 0 ]
+"93
+[v _WritePayload WritePayload `(v  1 e 1 0 ]
+"13 C:\Users\Student\MPLABXProjects\TemperatureLP.X\spi.c
+[v _SPI_init SPI_init `(v  1 e 1 0 ]
+"46
+[v _SPI_transfer SPI_transfer `(uc  1 e 1 0 ]
+"18 C:\Users\Student\MPLABXProjects\TemperatureLP.X\system.c
+[v _ConfigureOscillator ConfigureOscillator `(v  1 e 1 0 ]
+"54
+[v _ConfigureOscillator_interrupt ConfigureOscillator_interrupt `(v  1 e 1 0 ]
+[v i1_ConfigureOscillator_interrupt ConfigureOscillator_interrupt `(v  1 e 1 0 ]
+"20 C:\Users\Student\MPLABXProjects\TemperatureLP.X\user.c
+[v _InitApp InitApp `(v  1 e 1 0 ]
+[v i1_InitApp InitApp `(v  1 e 1 0 ]
+"49
+[v _timer_setup_and_start_IE timer_setup_and_start_IE `(v  1 e 1 0 ]
+"349 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic16lf1459.h
+[v _INTCON INTCON `VEuc  1 e 1 @11 ]
+[s S48 . 1 `uc 1 IOCIF 1 0 :1:0 
+`uc 1 INTF 1 0 :1:1 
+`uc 1 TMR0IF 1 0 :1:2 
+`uc 1 IOCIE 1 0 :1:3 
+`uc 1 INTE 1 0 :1:4 
+`uc 1 TMR0IE 1 0 :1:5 
+`uc 1 PEIE 1 0 :1:6 
+`uc 1 GIE 1 0 :1:7 
+]
+"372
+[s S57 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 T0IF 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 T0IE 1 0 :1:5 
+]
+[u S62 . 1 `S48 1 . 1 0 `S57 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES62  1 e 1 @11 ]
+[s S27 . 1 `uc 1 TMR1IF 1 0 :1:0 
+`uc 1 TMR2IF 1 0 :1:1 
+`uc 1 . 1 0 :1:2 
+`uc 1 SSP1IF 1 0 :1:3 
+`uc 1 TXIF 1 0 :1:4 
+`uc 1 RCIF 1 0 :1:5 
+`uc 1 ADIF 1 0 :1:6 
+`uc 1 TMR1GIF 1 0 :1:7 
+]
+"590
+[u S36 . 1 `S27 1 . 1 0 ]
+[v _PIR1bits PIR1bits `VES36  1 e 1 @17 ]
+"709
+[v _TMR1L TMR1L `VEuc  1 e 1 @22 ]
+"729
+[v _TMR1H TMR1H `VEuc  1 e 1 @23 ]
+[s S80 . 1 `uc 1 TMR1ON 1 0 :1:0 
+`uc 1 . 1 0 :1:1 
+`uc 1 nT1SYNC 1 0 :1:2 
+`uc 1 T1OSCEN 1 0 :1:3 
+`uc 1 T1CKPS 1 0 :2:4 
+`uc 1 TMR1CS 1 0 :2:6 
+]
+"771
+[s S87 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 T1CKPS0 1 0 :1:4 
+`uc 1 T1CKPS1 1 0 :1:5 
+`uc 1 TMR1CS0 1 0 :1:6 
+`uc 1 TMR1CS1 1 0 :1:7 
+]
+[u S93 . 1 `S80 1 . 1 0 `S87 1 . 1 0 ]
+[v _T1CONbits T1CONbits `VES93  1 e 1 @24 ]
+[s S523 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 TRISA4 1 0 :1:4 
+`uc 1 TRISA5 1 0 :1:5 
+]
+"1014
+[u S527 . 1 `S523 1 . 1 0 ]
+[v _TRISAbits TRISAbits `VES527  1 e 1 @140 ]
+[s S265 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 TRISB4 1 0 :1:4 
+`uc 1 TRISB5 1 0 :1:5 
+`uc 1 TRISB6 1 0 :1:6 
+`uc 1 TRISB7 1 0 :1:7 
+]
+"1043
+[u S271 . 1 `S265 1 . 1 0 ]
+[v _TRISBbits TRISBbits `VES271  1 e 1 @141 ]
+[s S502 . 1 `uc 1 TRISC0 1 0 :1:0 
+`uc 1 TRISC1 1 0 :1:1 
+`uc 1 TRISC2 1 0 :1:2 
+`uc 1 TRISC3 1 0 :1:3 
+`uc 1 TRISC4 1 0 :1:4 
+`uc 1 TRISC5 1 0 :1:5 
+`uc 1 TRISC6 1 0 :1:6 
+`uc 1 TRISC7 1 0 :1:7 
+]
+"1085
+[u S511 . 1 `S502 1 . 1 0 ]
+[v _TRISCbits TRISCbits `VES511  1 e 1 @142 ]
+[s S110 . 1 `uc 1 TMR1IE 1 0 :1:0 
+`uc 1 TMR2IE 1 0 :1:1 
+`uc 1 . 1 0 :1:2 
+`uc 1 SSP1IE 1 0 :1:3 
+`uc 1 TXIE 1 0 :1:4 
+`uc 1 RCIE 1 0 :1:5 
+`uc 1 ADIE 1 0 :1:6 
+`uc 1 TMR1GIE 1 0 :1:7 
+]
+"1147
+[u S119 . 1 `S110 1 . 1 0 ]
+[v _PIE1bits PIE1bits `VES119  1 e 1 @145 ]
+[s S594 . 1 `uc 1 SCS 1 0 :2:0 
+`uc 1 IRCF 1 0 :4:2 
+`uc 1 SPLLMULT 1 0 :1:6 
+`uc 1 SPLLEN 1 0 :1:7 
+]
+"1523
+[s S599 . 1 `uc 1 SCS0 1 0 :1:0 
+`uc 1 SCS1 1 0 :1:1 
+`uc 1 IRCF0 1 0 :1:2 
+`uc 1 IRCF1 1 0 :1:3 
+`uc 1 IRCF2 1 0 :1:4 
+`uc 1 IRCF3 1 0 :1:5 
+]
+[u S606 . 1 `S594 1 . 1 0 `S599 1 . 1 0 ]
+[v _OSCCONbits OSCCONbits `VES606  1 e 1 @153 ]
+[s S131 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 LATA4 1 0 :1:4 
+`uc 1 LATA5 1 0 :1:5 
+]
+"1876
+[u S135 . 1 `S131 1 . 1 0 ]
+[v _LATAbits LATAbits `VES135  1 e 1 @268 ]
+[s S399 . 1 `uc 1 LATC0 1 0 :1:0 
+`uc 1 LATC1 1 0 :1:1 
+`uc 1 LATC2 1 0 :1:2 
+`uc 1 LATC3 1 0 :1:3 
+`uc 1 LATC4 1 0 :1:4 
+`uc 1 LATC5 1 0 :1:5 
+`uc 1 LATC6 1 0 :1:6 
+`uc 1 LATC7 1 0 :1:7 
+]
+"1947
+[u S408 . 1 `S399 1 . 1 0 ]
+[v _LATCbits LATCbits `VES408  1 e 1 @270 ]
+"2517
+[v _ANSELA ANSELA `VEuc  1 e 1 @396 ]
+"2546
+[v _ANSELB ANSELB `VEuc  1 e 1 @397 ]
+"2582
+[v _ANSELC ANSELC `VEuc  1 e 1 @398 ]
+"3168
+[v _SSPBUF SSPBUF `VEuc  1 e 1 @529 ]
+"3201
+[v _SSP1ADD SSP1ADD `VEuc  1 e 1 @530 ]
+"3277
+[v _SSP1STAT SSP1STAT `VEuc  1 e 1 @532 ]
+"3282
+[v _SSPSTAT SSPSTAT `VEuc  1 e 1 @532 ]
+[s S309 . 1 `uc 1 BF 1 0 :1:0 
+`uc 1 UA 1 0 :1:1 
+`uc 1 R_nW 1 0 :1:2 
+`uc 1 S 1 0 :1:3 
+`uc 1 P 1 0 :1:4 
+`uc 1 D_nA 1 0 :1:5 
+`uc 1 CKE 1 0 :1:6 
+`uc 1 SMP 1 0 :1:7 
+]
+"3354
+[u S318 . 1 `S309 1 . 1 0 ]
+[v _SSPSTATbits SSPSTATbits `VES318  1 e 1 @532 ]
+"3399
+[v _SSP1CON1 SSP1CON1 `VEuc  1 e 1 @533 ]
+[s S457 . 1 `uc 1 SSP1M0 1 0 :1:0 
+`uc 1 SSP1M1 1 0 :1:1 
+`uc 1 SSP1M2 1 0 :1:2 
+`uc 1 SSP1M3 1 0 :1:3 
+`uc 1 CKP 1 0 :1:4 
+`uc 1 SSPEN 1 0 :1:5 
+`uc 1 SSPOV 1 0 :1:6 
+`uc 1 WCOL 1 0 :1:7 
+]
+"3582
+[s S466 . 1 `uc 1 SSPM 1 0 :4:0 
+`uc 1 . 1 0 :1:4 
+`uc 1 SSP1EN 1 0 :1:5 
+`uc 1 SSP1OV 1 0 :1:6 
+]
+[u S471 . 1 `S457 1 . 1 0 `S466 1 . 1 0 ]
+[v _SSPCON1bits SSPCON1bits `VES471  1 e 1 @533 ]
+"3642
+[v _SSP1CON2 SSP1CON2 `VEuc  1 e 1 @534 ]
+"3647
+[v _SSPCON2 SSPCON2 `VEuc  1 e 1 @534 ]
+[s S288 . 1 `uc 1 SEN 1 0 :1:0 
+`uc 1 RSEN 1 0 :1:1 
+`uc 1 PEN 1 0 :1:2 
+`uc 1 RCEN 1 0 :1:3 
+`uc 1 ACKEN 1 0 :1:4 
+`uc 1 ACKDT 1 0 :1:5 
+`uc 1 ACKSTAT 1 0 :1:6 
+`uc 1 GCEN 1 0 :1:7 
+]
+"3664
+[u S297 . 1 `S288 1 . 1 0 ]
+[v _SSP1CON2bits SSP1CON2bits `VES297  1 e 1 @534 ]
+"3764
+[v _SSP1CON3 SSP1CON3 `VEuc  1 e 1 @535 ]
+"29 C:\Users\Student\MPLABXProjects\TemperatureLP.X\mainTemp.c
+[v _i i `i  1 e 2 0 ]
+"32 C:\Users\Student\MPLABXProjects\TemperatureLP.X\user.h
+[v _TMR_CNT TMR_CNT `i  1 e 2 0 ]
+"127 C:\Users\Student\MPLABXProjects\TemperatureLP.X\mainTemp.c
+[v _main main `(v  1 e 1 0 ]
+{
+"140
+} 0
+"49 C:\Users\Student\MPLABXProjects\TemperatureLP.X\user.c
+[v _timer_setup_and_start_IE timer_setup_and_start_IE `(v  1 e 1 0 ]
+{
+"71
+} 0
+"20
+[v _InitApp InitApp `(v  1 e 1 0 ]
+{
+"47
+} 0
+"54 C:\Users\Student\MPLABXProjects\TemperatureLP.X\system.c
+[v _ConfigureOscillator_interrupt ConfigureOscillator_interrupt `(v  1 e 1 0 ]
+{
+"88
+} 0
+"31 C:\Users\Student\MPLABXProjects\TemperatureLP.X\mainTemp.c
+[v _isr isr `II(v  1 e 1 0 ]
+{
+"95
+[v isr@data data `[5]uc  1 a 5 2 ]
+"40
+[v isr@read_byte read_byte `[2]uc  1 a 2 7 ]
+"93
+[v isr@F2937 F2937 `[5]uc  1 s 5 F2937 ]
+"125
+} 0
+"20 C:\Users\Student\MPLABXProjects\TemperatureLP.X\user.c
+[v i1_InitApp InitApp `(v  1 e 1 0 ]
+{
+"47
+} 0
+"54 C:\Users\Student\MPLABXProjects\TemperatureLP.X\system.c
+[v i1_ConfigureOscillator_interrupt ConfigureOscillator_interrupt `(v  1 e 1 0 ]
+{
+"88
+} 0
+"15 C:\Users\Student\MPLABXProjects\TemperatureLP.X\nRF24L01P.c
+[v _nRF_Setup nRF_Setup `(v  1 e 1 0 ]
+{
+"18
+[v nRF_Setup@RXTX_ADDR RXTX_ADDR `[5]uc  1 a 5 9 ]
+"41
+} 0
+"62
+[v _WriteAddress WriteAddress `(v  1 e 1 0 ]
+{
+[v WriteAddress@reg reg `uc  1 a 1 wreg ]
+"66
+[v WriteAddress@i i `i  1 a 2 5 ]
+"62
+[v WriteAddress@reg reg `uc  1 a 1 wreg ]
+[v WriteAddress@num num `uc  1 p 1 1 ]
+[v WriteAddress@addr addr `*.1uc  1 p 1 2 ]
+"64
+[v WriteAddress@reg reg `uc  1 a 1 4 ]
+"69
+} 0
+"86 C:\Users\Student\MPLABXProjects\TemperatureLP.X\i2c_temp.c
+[v _i2c_Write i2c_Write `(v  1 e 1 0 ]
+{
+[v i2c_Write@data data `uc  1 a 1 wreg ]
+[v i2c_Write@data data `uc  1 a 1 wreg ]
+"88
+[v i2c_Write@data data `uc  1 a 1 0 ]
+"91
+} 0
+"76
+[v _i2c_Stop i2c_Stop `(v  1 e 1 0 ]
+{
+"83
+} 0
+"59
+[v _i2c_Start i2c_Start `(v  1 e 1 0 ]
+{
+"65
+} 0
+"68
+[v _i2c_Restart i2c_Restart `(v  1 e 1 0 ]
+{
+"73
+} 0
+"120
+[v _i2c_Read i2c_Read `(uc  1 e 1 0 ]
+{
+[v i2c_Read@ack ack `uc  1 a 1 wreg ]
+"125
+[v i2c_Read@i2cReadData i2cReadData `uc  1 a 1 2 ]
+"120
+[v i2c_Read@ack ack `uc  1 a 1 wreg ]
+"128
+[v i2c_Read@ack ack `uc  1 a 1 1 ]
+"140
+} 0
+"107
+[v _i2c_Address i2c_Address `(v  1 e 1 0 ]
+{
+[v i2c_Address@address address `uc  1 a 1 wreg ]
+"109
+[v i2c_Address@l_address l_address `uc  1 a 1 3 ]
+"107
+[v i2c_Address@address address `uc  1 a 1 wreg ]
+[v i2c_Address@mode mode `uc  1 p 1 0 ]
+"111
+[v i2c_Address@address address `uc  1 a 1 2 ]
+"117
+} 0
+"54
+[v _i2c_Wait i2c_Wait `(v  1 e 1 0 ]
+{
+"56
+} 0
+"93 C:\Users\Student\MPLABXProjects\TemperatureLP.X\nRF24L01P.c
+[v _WritePayload WritePayload `(v  1 e 1 0 ]
+{
+[v WritePayload@num num `uc  1 a 1 wreg ]
+"97
+[v WritePayload@i i `uc  1 a 1 4 ]
+"93
+[v WritePayload@num num `uc  1 a 1 wreg ]
+[v WritePayload@data data `*.4uc  1 p 1 1 ]
+"95
+[v WritePayload@num num `uc  1 a 1 3 ]
+"104
+} 0
+"13 C:\Users\Student\MPLABXProjects\TemperatureLP.X\spi.c
+[v _SPI_init SPI_init `(v  1 e 1 0 ]
+{
+"43
+} 0
+"34 C:\Users\Student\MPLABXProjects\TemperatureLP.X\i2c_temp.c
+[v _I2C_Initialize I2C_Initialize `(v  1 e 1 0 ]
+{
+"51
+} 0
+"44 C:\Users\Student\MPLABXProjects\TemperatureLP.X\nRF24L01P.c
+[v _FlushTXRX FlushTXRX `(v  1 e 1 0 ]
+{
+"49
+} 0
+"52
+[v _WriteRegister WriteRegister `(v  1 e 1 0 ]
+{
+[v WriteRegister@reg reg `uc  1 a 1 wreg ]
+[v WriteRegister@reg reg `uc  1 a 1 wreg ]
+[v WriteRegister@val val `uc  1 p 1 1 ]
+"54
+[v WriteRegister@reg reg `uc  1 a 1 2 ]
+"59
+} 0
+"86
+[v _WriteCommand WriteCommand `(v  1 e 1 0 ]
+{
+[v WriteCommand@command command `uc  1 a 1 wreg ]
+[v WriteCommand@command command `uc  1 a 1 wreg ]
+"88
+[v WriteCommand@command command `uc  1 a 1 1 ]
+"91
+} 0
+"46 C:\Users\Student\MPLABXProjects\TemperatureLP.X\spi.c
+[v _SPI_transfer SPI_transfer `(uc  1 e 1 0 ]
+{
+[v SPI_transfer@data data `uc  1 a 1 wreg ]
+[v SPI_transfer@data data `uc  1 a 1 wreg ]
+"48
+[v SPI_transfer@data data `uc  1 a 1 0 ]
+"51
+} 0
+"18 C:\Users\Student\MPLABXProjects\TemperatureLP.X\system.c
+[v _ConfigureOscillator ConfigureOscillator `(v  1 e 1 0 ]
+{
+"52
+} 0

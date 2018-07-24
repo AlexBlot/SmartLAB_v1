@@ -1,0 +1,26 @@
+
+# 1 "device_config.c"
+
+
+
+#pragma config FOSC = INTOSC
+#pragma config WDTE = OFF
+#pragma config PWRTE = OFF
+#pragma config MCLRE = ON
+#pragma config CP = OFF
+#pragma config BOREN = OFF
+#pragma config CLKOUTEN = OFF
+#pragma config IESO = OFF
+#pragma config FCMEN = ON
+
+
+#pragma config WRT = OFF
+#pragma config CPUDIV = CLKDIV6
+#pragma config USBLSCLK = 48MHz
+#pragma config PLLMULT = 3x
+#pragma config PLLEN = DISABLED
+#pragma config STVREN = OFF
+#pragma config BORV = LO
+#pragma config LPBOR = OFF
+#pragma config LVP = OFF
+
