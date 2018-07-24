@@ -60,7 +60,6 @@ void interrupt isr()
             I2C_Initialize();            
             __delay_ms(30);
 
-
             // Read one byte 
             i2c_Start();                            // send Start
             i2c_Address(I2C_SLAVE, I2C_WRITE);      // Send slave address - write operation
@@ -92,9 +91,9 @@ void interrupt isr()
             CE = 1;
             __delay_us(150);         
 
-            uint8_t data[5] = {0,0,0,0,0};           // four bytes to be compatible to developed USB hub 
-            data[0] = 1;
-            data[1] = 5;
+            uint8_t data[5] = {0,0,0,0,0};           // five bytes to be compatible to developed USB hub 
+            data[0] = 1;                             // Yawn sensor node number  
+            data[1] = 5;                             // Yawn identifier 
             data[2] = read_byte[0];
             data[3] = read_byte[1];
 
