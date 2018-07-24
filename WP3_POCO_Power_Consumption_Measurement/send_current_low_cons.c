@@ -1,6 +1,6 @@
 /* 
- * File:   send_current_main.c
- * Author: student
+ * File:   send_current_low_cons.c
+ * Author: GABORY Pierre
  *
  * Created on 2018. srpnja 12, 10:09
  */
@@ -54,14 +54,12 @@
 ///******************************************************************************/
 /* User Global Variable Declaration                                           */
 
-static uint32_t millisecond = 0;
-uint32_t adcUpdate_timestamp = 0;
+#define ADC_BUFFER_LENGTH   40                  // Number of sample for ADC measurement
 
-#define ADC_BUFFER_LENGTH   40
-int16_t adc_data[ADC_BUFFER_LENGTH] = {0};
-uint8_t adc_data_index = 0;
-uint16_t ac_value = 0;
-uint8_t tmrcmpt = 0;
+int16_t adc_data[ADC_BUFFER_LENGTH] = {0};      // Storage of the 40 samples 
+uint8_t adc_data_index = 0;                     // Counter
+uint16_t ac_value = 0;                          // RMS value
+uint8_t tmrcmpt = 0;                            // Timer Counter 
 
 /******************************************************************************/
 /* Interrupt routine                                                          */
@@ -70,33 +68,33 @@ uint8_t tmrcmpt = 0;
 void interrupt ISR_ROUTINE( )
 {
     //ConfigureOscillator();
-  InitApp();
+  InitApp();              // PORTs and Timers initialisation
   TRISCbits.TRISC3=1;     // RC3 AN7 input
   ANSELCbits.ANSC3=1;     // RC3 as Analog   
   /******************************************************************************/
   /* Interrupt sending data every 60 sec                                        */
   /******************************************************************************/
-  if(PIR1bits.TMR1IF)
+  if(PIR1bits.TMR1IF)            // Timer 1 flag 
   {
-          PIR1bits.TMR1IF = 0;
-          T1CONbits.TMR1ON = 0; 
-          //INTCONbits.GIE = 0;  // Timer1 OFF
+          PIR1bits.TMR1IF = 0;   // Reinitialisation of the flag   
+          T1CONbits.TMR1ON = 0;  // Timer1 OFF
+          //INTCONbits.GIE = 0; 
           //PORTCbits.RC4=~PORTCbits.RC4;
-          PIE1bits.TMR1IE = 0;
+          PIE1bits.TMR1IE = 0;   
           
-        tmrcmpt++;
-        if (tmrcmpt==6)
+        tmrcmpt++;              // Counter incrementation
+        if (tmrcmpt==6)         // 6*10 sec interrupt to get the 60 sec interrupt
         {
           LATCbits.LATC0=1;
-          INTCONbits.TMR0IE=1;
+          INTCONbits.TMR0IE=1;  // Timer 0 activation
           /******************************************************************************/
           /* Interrupt every millisecond during 40 ms to get adc values                 */
           /******************************************************************************/ 
           __delay_ms(5);
 
-          while (adc_data_index<40)
+          while (adc_data_index<40)         // Until we get the 40 samples
           {
-              if( TMR0IF )
+              if( TMR0IF )                  // Timer 0 flag
               {
                 //  Period = (256 - TMR0)*(4/fosc)*(Prescaler)
                 TMR0 = 0x83;
@@ -108,11 +106,11 @@ void interrupt ISR_ROUTINE( )
                 while (ADCON0bits.GO_nDONE==1);
                 uint8_t adc_lo = ADRESL;
                 uint8_t adc_hi = ADRESH;
-                adc_data[adc_data_index] =  ((uint16_t)(adc_hi << 8) | (uint16_t)adc_lo);
+                adc_data[adc_data_index] =  ((uint16_t)(adc_hi << 8) | (uint16_t)adc_lo);       // Result on 10 bits
                 adc_data_index++;         
               }
           }
-          INTCONbits.TMR0IE=0;
+          INTCONbits.TMR0IE=0;          // Timer 0 deactivation
           INTCONbits.GIE = 0;  
           adc_data_index = 0;      
           // Time to Process
@@ -120,12 +118,16 @@ void interrupt ISR_ROUTINE( )
           uint32_t dc_filter_val = 0;
           ac_value = 0;
           uint8_t i = 0;
+            
+          // DC value calculation
           for(i=0; i < ADC_BUFFER_LENGTH; i++ )
           {
             dc_filter_val += (uint32_t)(adc_data[i]);
           }
           dc_filter_val = dc_filter_val / (ADC_BUFFER_LENGTH);
           dc_filter_val = 512 - dc_filter_val;
+            
+          // Filling the table
           for(i=0; i < ADC_BUFFER_LENGTH; i++ )
           {
             adc_data[i] = (adc_data[i] + (dc_filter_val)) ;
@@ -150,8 +152,8 @@ void interrupt ISR_ROUTINE( )
           __delay_us(150);         
 
           uint8_t data[5] = {0,0,0,0,0};           // four bytes to be compatible to developed USB hub 
-          data[0] = 2;
-          data[1] = 13;
+          data[0] = 2;                             // YAWN sensor node number
+          data[1] = 13;                            // YAWN identifier
           data[2] = ac_value;
           data[3] = (ac_value >> 8);
 
@@ -168,6 +170,8 @@ void interrupt ISR_ROUTINE( )
           //ConfigureOscillator_interrupt();
           INTCONbits.GIE = 1;
           InitApp();
+      
+        // Preload of the timer to have a 10 sec interrupt
         TMR1H = 0x68;           
         TMR1L = 0x80; 
     } 
