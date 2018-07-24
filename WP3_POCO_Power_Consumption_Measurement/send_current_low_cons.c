@@ -68,7 +68,7 @@ uint8_t tmrcmpt = 0;                            // Timer Counter
 void interrupt ISR_ROUTINE( )
 {
     //ConfigureOscillator();
-  InitApp();              // PORTs and Timers initialisation
+  InitApp();              // PORTs initialisation
   TRISCbits.TRISC3=1;     // RC3 AN7 input
   ANSELCbits.ANSC3=1;     // RC3 as Analog   
   /******************************************************************************/
