@@ -76,7 +76,7 @@ void interrupt ISR_ROUTINE( )
   /******************************************************************************/
   if(PIR1bits.TMR1IF)            // Timer 1 flag 
   {
-          PIR1bits.TMR1IF = 0;   // Reinitialisation of the flag   
+          PIR1bits.TMR1IF = 0;   // Reset of the flag   
           T1CONbits.TMR1ON = 0;  // Timer1 OFF
           //INTCONbits.GIE = 0; 
           //PORTCbits.RC4=~PORTCbits.RC4;
