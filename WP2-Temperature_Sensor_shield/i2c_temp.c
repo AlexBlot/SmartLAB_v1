@@ -158,20 +158,19 @@ uint8_t i2c_temp_read(uint8_t address)
 {
     uint8_t read_byte[2];
     // Read one byte 
-    i2c_Start();                        // send Start
-    i2c_Address(I2C_SLAVE, I2C_WRITE);  // Send slave address - write operation
-    i2c_Write(address);	                // Set register
-    i2c_Restart();                      // Restart
-    i2c_Address(I2C_SLAVE, I2C_READ);   // Send slave address - read operation	// Read one byte
-                                                     // If more than one byte to be read, (0) should  // Send slave address - read operation	
-    read_byte[0] = i2c_Read(1);
-    read_byte[1] = i2c_Read(0);        // Read one byte                                                // be on last byte only
-                                                    // e.g.3 bytes= i2c_Read(1); i2c_Read(1); i2c_Read(0);
-    i2c_Stop();    // send Stop
+    i2c_Start();                                // send Start
+    i2c_Address(I2C_SLAVE, I2C_WRITE);          // Send slave address - write operation
+    i2c_Write(address);	                        // Set register
+    i2c_Restart();                              // Restart
+    i2c_Address(I2C_SLAVE, I2C_READ);           // Send slave address - read operation
+                                                     // If more than one byte to be read, (0) should be on last byte only 
+    read_byte[0] = i2c_Read(1);                     // e.g.3 bytes= i2c_Read(2); i2c_Read(1); i2c_Read(0);
+    read_byte[1] = i2c_Read(0);                                                      
+                                                    
+    i2c_Stop();                                 // send Stop
         
     return *read_byte;                               // return byte. 
-                                                    // If reading more than one byte
-                                                     // store in an array
+                                                 
 }
 
 
