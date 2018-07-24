@@ -51,6 +51,7 @@ void timer_setup_and_start_IE(void)
     T1CONbits.T1OSCEN = 0;
     T1CONbits.T1CKPS = 0b11;                     // 11 - 8, 00 - 1  
     T1CONbits.TMR1CS = 0b11;                    // 00 - FOSC/4, 01 - FOSC
+    // Preload to get 10 sec interrupt
     TMR1H = 0x68;           
     TMR1L = 0x80;
     TMR_CNT = 0;
